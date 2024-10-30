@@ -1,0 +1,28 @@
+//texto incriptado
+let mensajeEncriptado = "^[()`~^*/?`[()^+`- ~()#[$()/~()%\\[]()}+[()[{=~¿()=$?%?!?]¡~()¿()`¬^~()[{=~()?+^[]=?()^\\{()*~¡[$[{()¡[()?=[]`\\¬]()¿()[{;+[$  ~()`~]=\\]+~";
+// diccionario de sustituciones
+let sustituciones = {
+    "¿": "a",
+    "[": "e",
+    "\\": "i",
+    "~": "o",
+    "+": "u",
+    "¬": "ó",
+    "()": " ",
+    "?": "a",
+    "$": "e",
+    "`": "a",
+    "=": "e",
+    "__": "z"
+};
+function desencriptar(mensaje) {"^[()`~^*/?`[()^+`- ~()#[$()/~()%\\[]()}+[()[{=~¿()=$?%?!?]¡~()¿()`¬^~()[{=~()?+^[]=?()^\\{()*~¡[$[{()¡[()?=[]`\\¬]()¿()[{;+[$  ~()`~]=\\]+~";
+// reemplazar cada patron en el mensaje
+Object.keys(sustituciones).forEach(simbolo => {
+        let regex = new RegExp(`\\${simbolo}`, "g");
+        mensaje = mensaje.replace(regex, sustituciones[simbolo]);
+    });
+    return mensaje;
+    
+    // Mostrar el mensaje desencriptado
+console.log(desencriptar(mensajeEncriptado));
+
